@@ -85,4 +85,5 @@ while (1):
         n = int(input("Enter the Length of the Password: "))
         ultra_strong(n)
     else:
+        print("\nThank you for using our generator")
         break
