@@ -1,18 +1,88 @@
-import random  # To generate or to choose random numbers.
-import string  # To generate a password.
+import random
+import string
 
-# User will enter the length of the password.
+print("------------------------Welcome to the Random Password Generator: ------------------------")
+print("What type of Password you want to generate:-")
+print("\n1. Alphabetical Password")
+print("2. Alpha Numeric Password")
+print("3. Symbolic Password")
+print("4. Alpha Symbolic Password")
+print("5. Numeric Symbolic Password")
+print("6. Ultra Strong Password")
 
-n = int(input("Enter the length of the password: "))
 
-# Source string is used to combine the letters and digits.
+def alpha_numeric(n):
+    main = string.ascii_letters + string.digits
+    password = ""
+    for i in range(n):
+        password += (random.choice(main))
+    print("\nRandom password with length", n, "is: ", password)
 
-main = string.ascii_letters + string.digits
 
-# We will choose each character randomly from the source string and add it into our empty string using a for loop till n.
+def alpha(n):
+    main = string.ascii_letters
+    password = ""
+    for i in range(n):
+        password += (random.choice(main))
+    print("\nRandom password with length", n, "is: ", password)
 
-password = ''.join((random.choice(main) for i in range(n)))
 
-# Now we will print our password.
+def numeric(n):
+    main = string.digits+string.punctuation
+    password = ""
+    for i in range(n):
+        password += (random.choice(main))
+    print("\nRandom password with length", n, "is: ", password)
 
-print("\nRandom password with length", n, "is: ", password)
+
+def symbolic(n):
+    main = string.punctuation
+    password = ""
+    for i in range(n):
+        password += (random.choice(main))
+    print("\nRandom password with length", n, "is: ", password)
+
+
+def alpha_symbolic(n):
+    main = string.punctuation + string.ascii_letters
+    password = ""
+    for i in range(n):
+        password += (random.choice(main))
+    print("\nRandom password with length", n, "is: ", password)
+
+
+def ultra_strong(n):
+    main = string.punctuation + string.ascii_letters + string.digits
+    password = ""
+    for i in range(n):
+        password += (random.choice(main))
+    print("\nRandom password with length", n, "is: ", password)
+
+
+while (1):
+    ch = int(input("\nEnter Choice: "))
+    if ch == 1:
+        n = int(input("Enter the Length of the Password: "))
+        alpha(n)
+
+    elif ch == 2:
+        n = int(input("Enter the Length of the Password: "))
+        alpha_numeric(n)
+
+    elif ch == 3:
+        n = int(input("Enter the Length of the Password: "))
+        symbolic(n)
+
+    elif ch == 4:
+        n = int(input("Enter the Length of the Password: "))
+        alpha_symbolic(n)
+
+    elif ch == 5:
+        n = int(input("Enter the Length of the Password: "))
+        numeric(n)
+
+    elif ch == 6:
+        n = int(input("Enter the Length of the Password: "))
+        ultra_strong(n)
+    else:
+        break
